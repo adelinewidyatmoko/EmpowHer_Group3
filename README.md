@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
@@ -6,7 +6,26 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+
+## 👩‍💻 For Developers – Project Structure & Contribution Guide
+Mohon untuk mengikuti dan membaca seksama strkture folder yang perlu dan tidak perlu di ketik.
+
+🗂 Folder Structure Overview
+* routes/web.php → Tempat menuliskan semua rute (URL) halaman web (seperti halaman utama, login, dashboard, dsb) dan mengarahkannya ke controller method tertentu.
+📌 jangan lupa tulis folder ini setiap controller sudah aman dan views aman (jika setiap fitur page kamu sudah selesai).
+
+example: Route::get('/dashboard', [DashboardController::class, 'index']);
+
+
+* resources/views/ → ini folder saat..Blade templates (frontend UI).
+
+
+* app/Http/Controllers/ → inii untuk Controllers for handling logic.
+
+* app/Models/ → ini untukk Eloquent models (database-related).
+
+* public/ → ini untukk Static files (images, CSS, JS).
+
 
 ## About Laravel
 
