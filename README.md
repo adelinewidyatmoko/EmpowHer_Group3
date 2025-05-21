@@ -11,10 +11,9 @@
 Mohon untuk mengikuti dan membaca seksama strkture folder yang perlu dan tidak perlu di ketik.
 
 🗂 Folder Structure Overview
-* routes/web.php → Tempat menuliskan semua rute (URL) halaman web (seperti halaman utama, login, dashboard, dsb) dan mengarahkannya ke controller method tertentu.
-📌 jangan lupa tulis folder ini setiap controller sudah aman dan views aman (jika setiap fitur page kamu sudah selesai).
+* [routes/web.php] → Tempat menuliskan semua rute (URL) halaman web (seperti halaman utama, login, dashboard, dsb) dan mengarahkannya ke controller method tertentu.
 
-example: Route::get('/dashboard', [DashboardController::class, 'index']);
+📌 jangan lupa tulis folder ini setiap controller sudah aman dan views aman (jika setiap fitur page kamu sudah selesai). example: Route::get('/dashboard', [DashboardController::class, 'index']);
 
 
 * resources/views/ → ini folder saat..Blade templates (frontend UI).
