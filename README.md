@@ -1,6 +1,6 @@
 EmpowHer application aims to empower women by providing a platform for connection, professional development, and even self-improvement from various ages. Here's a breakdown of the product scope:
 
-1. Job Seeking/Offering
+1. Job Opportunities
 Enable job seekers to find relevant job opportunities to their liking.
 
 2. Educational Programs:
