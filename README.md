@@ -38,6 +38,8 @@ https://www.notion.so/PPPL-CODE-1f93449f1ec580309a79ef6b353172fa?pvs=4
 
 📌ini untuk asset
 
+## TUTORIAL LARAVEL: https://drive.google.com/drive/folders/1xrddB-_MNwyUmXcaak0XIf4dthG6Cipn
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
