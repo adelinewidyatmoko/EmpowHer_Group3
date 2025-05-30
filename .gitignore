@@ -17,6 +17,7 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+copilot-reference/
 =======
 /vendor/
 node_modules/
