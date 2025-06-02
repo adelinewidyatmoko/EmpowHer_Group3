@@ -1,0 +1,88 @@
+body {
+    background-color: #fef7f6;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background-color: #fef7f6;
+    text-align: center;
+    padding: 40px;
+    width: 350px;
+}
+
+h2 {
+    color: #9b5a60;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #b88c91;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    border: none;
+    border-radius: 30px;
+    background-color: #9b5a60;
+    color: #fff;
+    font-size: 14px;
+}
+
+.input-group input::placeholder {
+    color: #fcdede;
+}
+
+.icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fcdede;
+}
+
+.register-btn {
+    background-color: #9b5a60;
+    color: #fff;
+    border: none;
+    padding: 12px 0;
+    width: 100%;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.other-register {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: #9b5a60;
+}
+
+.login-link {
+    color: #9b5a60;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-left: 5px;
+}
+
+.error-text {
+    color: #9b5a60;
+    font-size: 0.75rem;
+    margin-top: 5px;
+    display: block;
+}
