@@ -21,3 +21,7 @@ Route::get('/', function () {
 Route::get('/course', function () {
     return view('initialcourse');
 });
+
+Route::get('/faq', function () {
+    return view('faqfeature');
+});
