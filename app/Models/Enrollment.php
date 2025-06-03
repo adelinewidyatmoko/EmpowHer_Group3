@@ -13,7 +13,17 @@ class Enrollment extends Model
         'user_id',
         'course_id',
         'progress',
-        'completed'
+        'enrolled_at',
+        'completed_at'
+    ];
+
+    protected $dates = [
+        'enrolled_at',
+        'completed_at'
+    ];
+
+    protected $casts = [
+        'progress' => 'decimal:2'
     ];
 
     /**

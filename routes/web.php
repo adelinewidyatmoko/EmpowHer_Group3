@@ -14,10 +14,9 @@ use App\Http\Controllers\CourseController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Set courses index as the homepage
+Route::get('/', [CourseController::class, 'index']);
 
 // Course routes
-Route::get('/courses', [CourseController::class, 'index'])->name('courses.index');
-Route::get('/courses/{course}', [CourseController::class, 'show'])->name('courses.show');
+Route::resource('courses', CourseController::class);
+Route::post('courses/{course}/enroll', [CourseController::class, 'enroll'])->name('courses.enroll');

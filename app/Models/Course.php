@@ -11,9 +11,34 @@ class Course extends Model
 
     protected $fillable = [
         'title',
+        'subtitle',
         'description',
+        'duration',
+        'enrolled_count',
+        'rating',
+        'provider',
+        'type',
+        'image',
         'video_url'
     ];
+
+    /**
+     * Get the enrolled users for the course.
+     */
+    public function enrolledUsers()
+    {
+        return $this->belongsToMany(User::class, 'enrollments')
+                    ->withPivot('progress', 'completed_at')
+                    ->withTimestamps();
+    }
+
+    /**
+     * Get the enrollments for the course.
+     */
+    public function enrollments()
+    {
+        return $this->hasMany(Enrollment::class);
+    }
 
     /**
      * Get the title of the course.
