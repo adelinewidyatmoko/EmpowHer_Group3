@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('enrolled_count')->default(0);
             $table->decimal('rating', 3, 2)->default(0.00);
             $table->string('provider');
+            $table->foreignId('course_category_id')->constrained()->onDelete('cascade');
             $table->enum('type', ['r-programming', 'python', 'excel', 'other']);
             $table->string('image')->nullable();
             $table->string('video_url')->nullable();
