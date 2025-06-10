@@ -58,7 +58,7 @@
         }
 
         .course-header {
-            background: linear-gradient(135deg, #4a90e2, #357abd);
+            background: linear-gradient(135deg, #94576E, #7A4A5A);
             color: white;
             padding: 15px;
             border-radius: 12px 12px 0 0;
@@ -66,15 +66,15 @@
         }
 
         .course-header.r-programming {
-            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            background: linear-gradient(135deg, #94576E, #7A4A5A);
         }
 
         .course-header.excel {
-            background: linear-gradient(135deg, #388e3c, #2e7d32);
+            background: linear-gradient(135deg, #94576E, #7A4A5A);
         }
 
         .course-header.python {
-            background: linear-gradient(135deg, #1976d2, #0d47a1);
+            background: linear-gradient(135deg, #94576E, #7A4A5A);
         }
 
         .course-logo {
