@@ -1,5 +1,4 @@
 @extends('layouts.loginregister')
-
 @section('content')
 <link rel="stylesheet" href="{{ asset('registerstyle.css') }}">
 
