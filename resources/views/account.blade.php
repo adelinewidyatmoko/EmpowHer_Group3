@@ -23,8 +23,9 @@
             border-radius: 50%;
         }
         .badge-role {
-            background-color: #f7d9dd;
-            color: #924e55;
+            background-color: white;
+            font-weight: bold;
+            color: #924e55 !important;
             font-size: 0.75rem;
             border-radius: 10px;
             padding: 2px 10px;
@@ -69,22 +70,24 @@
                         <div class="d-flex align-items-center mb-2">
                             <h4 class="mb-0">{{ Auth::user()->name ?? 'Guest' }}</h4>
                             <span class="badge-role ms-2">Digital Marketing</span>
-                            <a href="#" class="change-link ms-3">Change</a>
+                            <a href="{{ route('change') }}" class="change-link ms-3">Change</a>
                         </div>
                         <p class="text-muted mb-1">{{ Auth::user()->email ?? 'Guest' }}</p>
-                        <p class="text-secondary mb-3" style="text-align: left;">
+                        <p class="text-black mb-3" style="text-align: left;">
                             {{ Auth::user()->personalinfo ?? 'Guest' }}
                         </p>
 
-                        <button class="action-button d-flex align-items-center mb-2 w-100"><i class="bi bi-clock-history me-2"></i>Riwayat Transaksi</button>
+                        <button class="action-button d-flex align-items-center mb-2 w-100"><svg fill="#ffffff" width="20px" height="20px" viewBox="-1 0 19 19" xmlns="http://www.w3.org/2000/svg" class="cf-icon-svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M16.417 9.5a7.919 7.919 0 0 1-15.212 3.082A7.87 7.87 0 0 1 .584 9.5a.554.554 0 0 1 1.109 0 6.81 6.81 0 0 0 13.081 2.65 6.811 6.811 0 0 0-9.66-8.557 6.859 6.859 0 0 0-1.847 1.554h1.276a.554.554 0 0 1 0 1.108h-2.61a.554.554 0 0 1-.555-.554V3.09a.554.554 0 0 1 1.109 0v1.262A7.898 7.898 0 0 1 8.5 1.583 7.911 7.911 0 0 1 16.417 9.5zm-5.181 3a.554.554 0 0 1-.784 0l-2.42-2.42a.552.552 0 0 1-.22-.441V5.168a.554.554 0 1 1 1.11 0v4.234l2.314 2.315a.554.554 0 0 1 0 .784z"></path></g></svg>&nbsp;
+                            Riwayat Transaksi</button>
 
-                        <button class="action-button d-flex align-items-center w-100"><i class="bi bi-clock-history me-2"></i>Experts Chat</button>
+                        <button class="action-button d-flex align-items-center w-100"><svg fill="#ffffff" width="20px" height="20px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" transform="matrix(-1, 0, 0, 1, 0, 0)" stroke="#ffffff" stroke-width="0.00024000000000000003"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M3,3A1,1,0,0,0,2,4V16a1,1,0,0,0,1,1h9.649l4.726,3.781A1,1,0,0,0,19,20V17h2a1,1,0,0,0,1-1V4a1,1,0,0,0-1-1ZM20,15H18a1,1,0,0,0-1,1v1.919l-3.375-2.7A1,1,0,0,0,13,15H4V5H20Z"></path></g></svg> &nbsp;
+                            Experts Chat</button>
 
                         <div class="d-flex justify-content-center mt-3">
                             <form action="{{ route('deleteAccount') }}" method="POST" onsubmit="return confirm('Are you sure you want to delete your account?');">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="delete-btn w-100">Delete Account</button> 
+                                <button type="submit" class="delete-btn w-100">Delete Account</button>
                             </form>
                         </div>
                     </div>

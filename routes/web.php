@@ -25,3 +25,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/account', [App\Http\Controllers\AccountController::class, 'account'])->name('account');
 Route::delete('/account/delete', [App\Http\Controllers\AccountController::class, 'deleteAccount'])->name('deleteAccount');
+
+Route::get('/account/change', [App\Http\Controllers\AccountController::class, 'change'])->name('change');
+Route::post('/account/edit', [App\Http\Controllers\AccountController::class, 'edit'])->name('edit');
