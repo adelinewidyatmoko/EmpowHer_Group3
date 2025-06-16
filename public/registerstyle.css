@@ -41,6 +41,7 @@ h2 {
     background-color: #9b5a60;
     color: #fff;
     font-size: 14px;
+    font-family: FontAwesome, Arial, Helvetica, sans-serif;
 }
 
 .input-group input::placeholder {
@@ -75,8 +76,6 @@ h2 {
 
 .login-link {
     color: #9b5a60;
-    font-weight: bold;
-    text-decoration: underline;
     margin-left: 5px;
 }
 

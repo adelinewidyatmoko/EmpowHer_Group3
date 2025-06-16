@@ -41,6 +41,8 @@ body {
     border-radius: 25px;
     font-size: 14px;
     outline: none;
+    font-family: FontAwesome, Arial, Helvetica, sans-serif;
+
 }
 
 .icon {
@@ -59,13 +61,9 @@ body {
     margin-top: 5px;
 }
 
-.remember-forgot {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.85rem;
-    margin-top: 10px;
-    color: white;
+.logo-container {
+    background-color: white;
+    padding-top: 100%;
 }
 
 .forgot {
