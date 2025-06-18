@@ -1,6 +1,13 @@
 <?php
 
+use App\Http\Controllers\jobcontroll;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Marketingcontroll;
+use App\Http\Controllers\Salescontroll;
+use App\Http\Controllers\Tutorcontroll;
+use App\Http\Controllers\Freelancecontroll;
+use App\Http\Controllers\applyjobs;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +24,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/jobopportunity', function () {
-    return view('jobopportunity');
+Route::get('/jobopportunity', jobcontroll::class . '@jobIndex')->name('jobs.tech');
+Route::get('/jobopportunity/tutor', Tutorcontroll::class . '@tutorIndex')->name('jobs.tutoring');
+Route::get('/jobopportunity/sales', Salescontroll::class . '@salesIndex')->name('jobs.sales');
+Route::get('/jobopportunity/marketing', Marketingcontroll::class . '@marketingIndex')->name('jobs.marketing');
+Route::get('/jobopportunity/freelance', Freelancecontroll::class . '@freelanceIndex')->name('jobs.freelance');
+Route::get('/jobopportunity/tech/details', function(){
+    return view('details.tech.swe');
 });
+Route::get('/jobopportunity/details/tech/{id}', jobcontroll::class . "@getJobDetails")->name('jobs.tech.details');
+Route::get('/apply', [applyjobs::class, 'applyIndex']);
+Route::post('/apply/submit', [applyjobs::class, 'insertApply'])->name('apply.submit');
