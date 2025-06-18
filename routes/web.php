@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TroubleController;
+use App\Http\Controllers\FAQController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/trouble', [TroubleController::class, 'index']);
+Route::get('/forum', [FAQController::class, 'index'])->name('forum');
+Route::get('/faq', [FAQController::class, 'index'])->name('faq');
+Route::get('/trouble', [TroubleController::class, 'index'])->name('trouble');
 Route::post('/trouble', [TroubleController::class, 'submit'])->name('trouble.submit');
