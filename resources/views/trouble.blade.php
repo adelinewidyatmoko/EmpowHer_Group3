@@ -83,7 +83,7 @@
         @endif
         <form action="{{ route('trouble.submit') }}" method="POST" enctype="multipart/form-data">
             @csrf            <div class="mb-4">
-                <h5>Help Form</h5>
+                <h5>Report Trouble</h5>
                 <hr>
             </div>            <div class="mb-3">
                 <label for="type" class="form-label required-field">Subject</label>                <select class="form-select" id="type" name="type" required>
