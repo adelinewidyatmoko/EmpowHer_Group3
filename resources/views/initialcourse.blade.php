@@ -92,6 +92,22 @@
             padding: 20px;
         }
 
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .dropdown-item {
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+            color: #8B4E52;
+        }
+
         .course-description {
             font-size: 13px;
             color: #666;
@@ -325,24 +341,82 @@
 <body>
     <nav class="navbar navbar-expand-lg" style="background-color: #8B4E52; color: white;">
         <div class="container">
-            <a class="navbar-brand text-white fw-bold" href="#">EmpowHer</a>
+            <a class="navbar-brand text-white fw-bold" href="{{ url('/') }}">EmpowHer</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Courses</a>
+                        <a class="nav-link text-white" href="{{ url('/') }}">
+                            <i class="fas fa-home me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-graduation-cap me-1"></i>Courses
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ url('/courses') }}">All Courses</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/courses-list') }}">Course List</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-briefcase me-1"></i>Job Opportunities
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('jobs.tech') }}">Technology</a></li>
+                            <li><a class="dropdown-item" href="{{ route('jobs.tutoring') }}">Tutoring</a></li>
+                            <li><a class="dropdown-item" href="{{ route('jobs.sales') }}">Sales</a></li>
+                            <li><a class="dropdown-item" href="{{ route('jobs.marketing') }}">Marketing</a></li>
+                            <li><a class="dropdown-item" href="{{ route('jobs.freelance') }}">Freelance</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Categories</a>
+                        <a class="nav-link text-white" href="{{ url('/apply') }}">
+                            <i class="fas fa-paper-plane me-1"></i>Apply for Jobs
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ url('/faq') }}">
+                            <i class="fas fa-question-circle me-1"></i>FAQ
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{{ route('trouble.index') }}">
+                            <i class="fas fa-exclamation-triangle me-1"></i>Report Issue
+                        </a>
                     </li>
                 </ul>
-                <div class="d-flex align-items-center">
-                    <div class="bg-light rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <span class="text-white ms-2">Guest</span>
+                <div class="navbar-nav">
+                    @auth
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
+                                <div class="bg-light rounded-circle p-2 d-flex align-items-center justify-content-center d-inline-block me-2" style="width: 35px; height: 35px;">
+                                    <i class="fas fa-user text-dark"></i>
+                                </div>
+                                {{ Auth::user()->name }}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="{{ route('account') }}">
+                                    <i class="fas fa-user-cog me-2"></i>Account Settings
+                                </a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{{ route('logout') }}" 
+                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-sign-out-alt me-2"></i>Logout
+                                </a></li>
+                            </ul>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    @else
+                        <a class="nav-link text-white" href="{{ route('login') }}">
+                            <i class="fas fa-sign-in-alt me-1"></i>Login
+                        </a>
+                    @endauth
                 </div>
             </div>
         </div>

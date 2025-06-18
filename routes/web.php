@@ -11,6 +11,7 @@ use App\Http\Controllers\Salescontroll;
 use App\Http\Controllers\Tutorcontroll;
 use App\Http\Controllers\Freelancecontroll;
 use App\Http\Controllers\applyjobs;
+use App\Http\Controllers\TroubleController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -71,3 +72,7 @@ Route::get('/jobopportunity/details/tech/{id}', [jobcontroll::class, "getJobDeta
 // Apply routes
 Route::get('/apply', [applyjobs::class, 'applyIndex']);
 Route::post('/apply/submit', [applyjobs::class, 'insertApply'])->name('apply.submit');
+
+// Trouble report routes
+Route::get('/trouble', [TroubleController::class, 'index'])->name('trouble.index');
+Route::post('/trouble', [TroubleController::class, 'submit'])->name('trouble.submit');

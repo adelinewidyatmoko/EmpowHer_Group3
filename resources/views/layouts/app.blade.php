@@ -11,6 +11,7 @@
             --primary-color: #8b5a6b;
             --secondary-color: #6c757d;
             --light-bg: #f8f9fa;
+            --bg-light: #e9ecef;
         }
 
         body {
@@ -34,14 +35,13 @@
         }
 
         .profile-avatar {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--primary-color);
         }
 
         .course-card {
@@ -151,6 +151,22 @@
         .breadcrumb-nav .breadcrumb-item.active {
             color: var(--secondary-color);
         }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .dropdown-item {
+            padding: 10px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+        }
     </style>
 </head>
 <body>
@@ -164,17 +180,75 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/courses') }}">Courses</a>
+                        <a class="nav-link" href="{{ url('/') }}">
+                            <i class="fas fa-home me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-graduation-cap me-1"></i>Courses
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ url('/courses') }}">All Courses</a></li>
+                            <li><a class="dropdown-item" href="{{ url('/courses-list') }}">Course List</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-briefcase me-1"></i>Job Opportunities
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('jobs.tech') }}">Technology</a></li>
+                            <li><a class="dropdown-item" href="{{ route('jobs.tutoring') }}">Tutoring</a></li>
+                            <li><a class="dropdown-item" href="{{ route('jobs.sales') }}">Sales</a></li>
+                            <li><a class="dropdown-item" href="{{ route('jobs.marketing') }}">Marketing</a></li>
+                            <li><a class="dropdown-item" href="{{ route('jobs.freelance') }}">Freelance</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/categories') }}">Categories</a>
+                        <a class="nav-link" href="{{ url('/apply') }}">
+                            <i class="fas fa-paper-plane me-1"></i>Apply for Jobs
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/faq') }}">
+                            <i class="fas fa-question-circle me-1"></i>FAQ
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('trouble.index') }}">
+                            <i class="fas fa-exclamation-triangle me-1"></i>Report Issue
+                        </a>
                     </li>
                 </ul>
-                <div class="profile-section">
-                    <div class="profile-avatar">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <span class="text-white d-none d-md-inline">{{ Auth::user()->name ?? 'Guest' }}</span>
+                <div class="navbar-nav">
+                    @auth
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
+                                <div class="profile-avatar d-inline-block me-2">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                {{ Auth::user()->name }}
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="{{ route('account') }}">
+                                    <i class="fas fa-user-cog me-2"></i>Account Settings
+                                </a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{{ route('logout') }}" 
+                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i class="fas fa-sign-out-alt me-2"></i>Logout
+                                </a></li>
+                            </ul>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    @else
+                        <a class="nav-link text-white" href="{{ route('login') }}">
+                            <i class="fas fa-sign-in-alt me-1"></i>Login
+                        </a>
+                    @endauth
                 </div>
             </div>
         </div>
