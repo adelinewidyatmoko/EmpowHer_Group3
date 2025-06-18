@@ -52,9 +52,10 @@
 .course-card {
             background: white;
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
         }
 
         .course-card:hover {
@@ -66,19 +67,12 @@
             background: linear-gradient(135deg, #94576E, #7A4A5A);
             color: white;
             padding: 15px;
-            border-radius: 12px 12px 0 0;
             position: relative;
+            display: flex;
+            align-items: center;
         }
 
         .course-header.r-programming {
-            background: linear-gradient(135deg, #94576E, #7A4A5A);
-        }
-
-        .course-header.excel {
-            background: linear-gradient(135deg, #94576E, #7A4A5A);
-        }
-
-        .course-header.python {
             background: linear-gradient(135deg, #94576E, #7A4A5A);
         }
 
@@ -98,17 +92,11 @@
             padding: 20px;
         }
 
-        .course-title {
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
         .course-description {
-            font-size: 12px;
+            font-size: 13px;
             color: #666;
-            line-height: 1.4;
-            margin-bottom: 15px;
+            line-height: 1.5;
+            margin-bottom: 20px;
         }
 
 .category-card {
@@ -188,16 +176,67 @@
 }
 
 .job-card {
-    background-color: white;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-    cursor: pointer;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .job-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.job-header {
+    background: linear-gradient(135deg, #94576E, #7A4A5A);
+    color: white;
+    padding: 15px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.job-header.r-programming {
+    background: linear-gradient(135deg, #94576E, #7A4A5A);
+}
+
+.job-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.job-salary {
+    font-size: 14px;
+    color: #28a745;
+    font-weight: 600;
+}
+
+.job-requirements {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.job-card-wrapper {
+    flex-shrink: 0;
+}
+
+.job-slider {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    padding: 10px 40px;
+}
+
+.job-slider::-webkit-scrollbar {
+    display: none;
 }
 
 .job-icon {
@@ -234,28 +273,7 @@
     .course-slider::-webkit-scrollbar, .job-slider::-webkit-scrollbar {
         display: none; /* Hide scrollbar Chrome, Safari, Opera */
     }
-    
-    .slider-control {
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        margin: 0 10px;
-        opacity: 0.6;
-        background-color: rgba(255, 255, 255, 0.8);
-    }
-    
-    .slider-control:hover {
-        background-color: #8B4E52;
-        color: white;
-        opacity: 0.8;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-    }
+
     
     .prev-btn {
         left: 10px;
@@ -264,6 +282,44 @@
     .next-btn {
         right: 10px;
     }
+
+    .view-course-btn {
+            background-color: #94576E;
+            color: white;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .view-course-btn:hover {
+            background-color: #7A4A5A;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .apply-btn {
+            background-color: #94576E;
+            color: white;
+            text-decoration: none;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .apply-btn:hover {
+            background-color: #7A4A5A;
+            color: white;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
@@ -329,38 +385,7 @@
                 </div>
             </div>
 
-            <h2 class="fw-bold mb-4">Top Categories</h2>
-            <div class="row">
-                <div class="col-md-3 mb-4">
-                    <div class="category-card">
-                        <i class="bi bi-laptop category-icon"></i>
-                        <h5>Development</h5>
-                        <p>12 Courses</p>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="category-card">
-                        <i class="bi bi-graph-up category-icon"></i>
-                        <h5>Marketing</h5>
-                        <p>12 Courses</p>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="category-card">
-                        <i class="bi bi-palette category-icon"></i>
-                        <h5>Design</h5>
-                        <p>11 Courses</p>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="category-card">
-                        <i class="bi bi-camera category-icon"></i>
-                        <h5>Photography</h5>
-                        <p>14 Courses</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+          
 
         <section class="mt-5">
             <div class="d-flex justify-content-between align-items-center mb-4">
@@ -368,147 +393,40 @@
                 <a href="#" class="btn btn-outline-primary">View All</a>
             </div>
             
-            <div class="position-relative">
-                <div class="course-slider row flex-nowrap overflow-hidden">
-                <div class="col-md-4 mb-4">
+            <div class="row">
+                @forelse($courses as $course)
+                <div class="col-md-6 col-lg-4">
                     <div class="course-card">
                         <div class="course-header r-programming">
-                            <div class="course-logo">Coursera</div>
+                            <div class="course-logo">EmpowHer</div>
                             <div class="d-flex align-items-center">
                                 <i class="fas fa-graduation-cap me-2" style="font-size: 24px;"></i>
-                                <span class="fw-bold">Data Science with R</span>
+                                <span class="fw-bold">{{ $course->title }}</span>
                             </div>
                         </div>
+                        
                         <div class="course-content">
-                            <h5 class="course-title">Master data analysis with R Programming</h5>
-                            <p class="course-description">Powerful, open-source programming and software environment widely used in data science for statistical analysis, visualization, and more.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="fw-bold">8 weeks</span>
+                            <div class="fw-bold mb-3">{{ $course->subtitle }}</div>
+                            <div class="course-description mb-3">{{ Str::limit($course->description, 120) }}</div>
+                            
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="text-muted small">
+                                    <i class="fas fa-clock me-1"></i>{{ $course->duration }}
                                 </div>
-                                <a href="#" class="btn btn-sm btn-outline-primary">View Course</a>
+                                <a href="{{ route('courses.show', $course->courseid) }}" class="apply-btn">
+                                    View Course
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <div class="col-md-4 mb-4">
-                    <div class="course-card">
-                        <div class="course-header excel">
-                            <div class="course-logo">Microsoft</div>
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-table me-2" style="font-size: 24px;"></i>
-                                <span class="fw-bold">Excel for Data Analysis</span>
-                            </div>
-                        </div>
-                        <div class="course-content">
-                            <h5 class="course-title">Master data analysis with Excel</h5>
-                            <p class="course-description">Learn how to use Excel for data analysis, visualization, and business intelligence with practical examples and case studies.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="fw-bold">6 weeks</span>
-                                </div>
-                                <a href="#" class="btn btn-sm btn-outline-primary">View Course</a>
-                            </div>
-                        </div>
+                @empty
+                <div class="col-12">
+                    <div class="alert alert-info">
+                        No featured courses available at the moment.
                     </div>
                 </div>
-                
-                <div class="col-md-4 mb-4">
-                    <div class="course-card">
-                        <div class="course-header python">
-                            <div class="course-logo">Udemy</div>
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-code me-2" style="font-size: 24px;"></i>
-                                <span class="fw-bold">Python for Data Science</span>
-                            </div>
-                        </div>
-                        <div class="course-content">
-                            <h5 class="course-title">Learn Python for data analysis and visualization</h5>
-                            <p class="course-description">Comprehensive course on using Python for data analysis, machine learning, and data visualization with pandas, numpy, and matplotlib.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="fw-bold">10 weeks</span>
-                                </div>
-                                <a href="#" class="btn btn-sm btn-outline-primary">View Course</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 mb-4">
-                    <div class="course-card">
-                        <div class="course-header" style="background: linear-gradient(135deg, #94576E, #7A4A5A);">
-                            <div class="course-logo">LinkedIn</div>
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-chart-line me-2" style="font-size: 24px;"></i>
-                                <span class="fw-bold">Business Analytics</span>
-                            </div>
-                        </div>
-                        <div class="course-content">
-                            <h5 class="course-title">Business Analytics for Decision Making</h5>
-                            <p class="course-description">Learn how to use data analysis to make better business decisions and drive strategic initiatives with practical case studies and real-world examples.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="fw-bold">7 weeks</span>
-                                </div>
-                                <a href="#" class="btn btn-sm btn-outline-primary">View Course</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 mb-4">
-                    <div class="course-card">
-                        <div class="course-header" style="background: linear-gradient(135deg, #94576E, #7A4A5A);">
-                            <div class="course-logo">Google</div>
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-mobile-alt me-2" style="font-size: 24px;"></i>
-                                <span class="fw-bold">UX Design</span>
-                            </div>
-                        </div>
-                        <div class="course-content">
-                            <h5 class="course-title">User Experience Design Fundamentals</h5>
-                            <p class="course-description">Master the principles of user-centered design and learn to create interfaces that are both beautiful and functional for mobile and web applications.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="fw-bold">9 weeks</span>
-                                </div>
-                                <a href="#" class="btn btn-sm btn-outline-primary">View Course</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 mb-4">
-                    <div class="course-card">
-                        <div class="course-header" style="background: linear-gradient(135deg, #94576E, #7A4A5A);">
-                            <div class="course-logo">Coursera</div>
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-brain me-2" style="font-size: 24px;"></i>
-                                <span class="fw-bold">Machine Learning</span>
-                            </div>
-                        </div>
-                        <div class="course-content">
-                            <h5 class="course-title">Machine Learning for Women in Tech</h5>
-                            <p class="course-description">Learn the fundamentals of machine learning algorithms and applications with a focus on empowering women to excel in AI and data science careers.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <span class="fw-bold">12 weeks</span>
-                                </div>
-                                <a href="#" class="btn btn-sm btn-outline-primary">View Course</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </div>
-                
-                <button class="btn btn-light slider-control prev-btn position-absolute top-50 start-0 translate-middle-y" style="z-index: 10; opacity: 0.6;">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="btn btn-light slider-control next-btn position-absolute top-50 end-0 translate-middle-y" style="z-index: 10; opacity: 0.6;">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+                @endforelse
             </div>
         </section>
 
@@ -518,273 +436,49 @@
                 <a href="#" class="btn btn-outline-primary">View All</a>
             </div>
             
-            <div class="position-relative">
-                <div class="job-slider row flex-nowrap overflow-hidden">
-                    <!-- First slide: 6 jobs (3x2) -->
-                    <div class="col-12">
-                        <div class="row">
-                            <div class="col-md-4 mb-4">
-                                <div class="job-card">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <div class="job-icon">
-                                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Telegram_2019_Logo.svg" alt="Company Logo" class="rounded-circle">
-                                        </div>
-                                        <div class="ms-3">
-                                            <h5 class="mb-1">QA Marketing</h5>
-                                            <p class="text-muted mb-0">Remote • Beginner Level</p>
-                                            <p class="text-muted mb-0">Woman Required</p>
-                                        </div>
-                                    </div>
-                                    <p class="job-description">QA Marketing works to ensure the whole progress of marketing going on. With a specification on statistics and Tech related</p>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-4 mb-4">
-                                <div class="job-card">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <div class="job-icon">
-                                            <img src="https://cdn-icons-png.flaticon.com/512/174/174874.png" alt="Company Logo" class="rounded-circle">
-                                        </div>
-                                        <div class="ms-3">
-                                            <h5 class="mb-1">Data Analyst</h5>
-                                            <p class="text-muted mb-0">Remote • Intermediate Level</p>
-                                            <p class="text-muted mb-0">Woman Required</p>
-                                        </div>
-                                    </div>
-                                    <p class="job-description">Looking for a data analyst with proficiency in Excel, SQL, and visualization tools to work on women's health data projects.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-4 mb-4">
-                                <div class="job-card">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <div class="job-icon">
-                                            <img src="https://cdn-icons-png.flaticon.com/512/2504/2504903.png" alt="Company Logo" class="rounded-circle">
-                                        </div>
-                                        <div class="ms-3">
-                                            <h5 class="mb-1">Frontend Developer</h5>
-                                            <p class="text-muted mb-0">Hybrid • Senior Level</p>
-                                            <p class="text-muted mb-0">Woman Required</p>
-                                        </div>
-                                    </div>
-                                    <p class="job-description">Frontend developer with experience in modern frameworks needed to build educational platform focusing on women's empowerment.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-4 mb-4">
-                                <div class="job-card">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <div class="job-icon">
-                                            <img src="https://cdn-icons-png.flaticon.com/512/5969/5969226.png" alt="Company Logo" class="rounded-circle">
-                                        </div>
-                                        <div class="ms-3">
-                                            <h5 class="mb-1">UX Designer</h5>
-                                            <p class="text-muted mb-0">Remote • Mid Level</p>
-                                            <p class="text-muted mb-0">Woman Required</p>
-                                        </div>
-                                    </div>
-                                    <p class="job-description">UX Designer needed to create intuitive interfaces for women's career advancement platform with focus on accessibility.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-4 mb-4">
-                                <div class="job-card">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <div class="job-icon">
-                                            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968853.png" alt="Company Logo" class="rounded-circle">
-                                        </div>
-                                        <div class="ms-3">
-                                            <h5 class="mb-1">Project Manager</h5>
-                                            <p class="text-muted mb-0">Remote • Senior Level</p>
-                                            <p class="text-muted mb-0">Woman Required</p>
-                                        </div>
-                                    </div>
-                                    <p class="job-description">Project manager with experience in tech-focused education platforms needed for women's skills development initiative.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-4 mb-4">
-                                <div class="job-card">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <div class="job-icon">
-                                            <img src="https://cdn-icons-png.flaticon.com/512/888/888856.png" alt="Company Logo" class="rounded-circle">
-                                        </div>
-                                        <div class="ms-3">
-                                            <h5 class="mb-1">Content Creator</h5>
-                                            <p class="text-muted mb-0">Remote • Entry Level</p>
-                                            <p class="text-muted mb-0">Woman Required</p>
-                                        </div>
-                                    </div>
-                                    <p class="job-description">Content creator for developing educational materials focused on women's career advancement in tech industries.</p>
-                                </div>
+            <div class="job-slider d-flex overflow-auto" id="jobSlider" style="scroll-behavior: smooth; gap: 25px;">
+                @forelse($jobs as $job)
+                <div class="job-card-wrapper" style="min-width: 420px; max-width: 420px;">
+                    <div class="job-card">
+                        <div class="job-header r-programming">
+                            <div class="course-logo">EmpowHer</div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-briefcase me-2" style="font-size: 24px;"></i>
+                                <span class="fw-bold">{{ $job->title }}</span>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Second slide: 6 more jobs (3x2) -->
-                    <div class="col-12">
-                        <div class="row">
-                            <div class="col-md-4 mb-4">
-                                <div class="job-card">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <div class="job-icon">
-                                            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968282.png" alt="Company Logo" class="rounded-circle">
-                                        </div>
-                                        <div class="ms-3">
-                                            <h5 class="mb-1">Backend Developer</h5>
-                                            <p class="text-muted mb-0">Hybrid • Senior Level</p>
-                                            <p class="text-muted mb-0">Woman Required</p>
-                                        </div>
-                                    </div>
-                                    <p class="job-description">Backend developer with Node.js and database experience for women's education platform to handle course management and user data.</p>
-                                </div>
+                        
+                        <div class="job-content">
+                            <div class="fw-bold mb-2">{{ $job->placement }}</div>
+                            <div class="job-salary mb-3">
+                                <i class="fas fa-dollar-sign me-1"></i>{{ $job->salary }}
+                            </div>
+                            <div class="job-requirements mb-3">
+                                <i class="fas fa-list-ul me-1"></i>{{ Str::limit($job->requirements, 100) }}
                             </div>
                             
-                            <div class="col-md-4 mb-4">
-                                <div class="job-card">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <div class="job-icon">
-                                            <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="Company Logo" class="rounded-circle">
-                                        </div>
-                                        <div class="ms-3">
-                                            <h5 class="mb-1">Digital Marketer</h5>
-                                            <p class="text-muted mb-0">Remote • Mid Level</p>
-                                            <p class="text-muted mb-0">Woman Required</p>
-                                        </div>
-                                    </div>
-                                    <p class="job-description">Digital marketing specialist needed to promote women's educational programs across various channels and engage with the community.</p>
+                            <div class="d-flex align-items-center justify-content-between mt-auto">
+                                <div class="text-muted small">
+                                    <i class="fas fa-map-marker-alt me-1"></i>{{ $job->placement }}
                                 </div>
-                            </div>
-                            
-                            <div class="col-md-4 mb-4">
-                                <div class="job-card">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <div class="job-icon">
-                                            <img src="https://cdn-icons-png.flaticon.com/512/2631/2631384.png" alt="Company Logo" class="rounded-circle">
-                                        </div>
-                                        <div class="ms-3">
-                                            <h5 class="mb-1">Data Scientist</h5>
-                                            <p class="text-muted mb-0">Remote • Senior Level</p>
-                                            <p class="text-muted mb-0">Woman Required</p>
-                                        </div>
-                                    </div>
-                                    <p class="job-description">Data scientist needed to develop models for analyzing gender equity in workplaces and create data-driven strategies for improvement.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-4 mb-4">
-                                <div class="job-card">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <div class="job-icon">
-                                            <img src="https://cdn-icons-png.flaticon.com/512/2721/2721287.png" alt="Company Logo" class="rounded-circle">
-                                        </div>
-                                        <div class="ms-3">
-                                            <h5 class="mb-1">Community Manager</h5>
-                                            <p class="text-muted mb-0">Remote • Mid Level</p>
-                                            <p class="text-muted mb-0">Woman Required</p>
-                                        </div>
-                                    </div>
-                                    <p class="job-description">Community manager to build and nurture women's professional networks in tech, finance, and entrepreneurship fields.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-4 mb-4">
-                                <div class="job-card">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <div class="job-icon">
-                                            <img src="https://cdn-icons-png.flaticon.com/512/9464/9464086.png" alt="Company Logo" class="rounded-circle">
-                                        </div>
-                                        <div class="ms-3">
-                                            <h5 class="mb-1">HR Specialist</h5>
-                                            <p class="text-muted mb-0">Hybrid • Mid Level</p>
-                                            <p class="text-muted mb-0">Woman Required</p>
-                                        </div>
-                                    </div>
-                                    <p class="job-description">HR specialist with experience in DEI initiatives to develop programs for women's professional advancement in corporate settings.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-4 mb-4">
-                                <div class="job-card">
-                                    <div class="d-flex align-items-center mb-3">
-                                        <div class="job-icon">
-                                            <img src="https://cdn-icons-png.flaticon.com/512/2762/2762270.png" alt="Company Logo" class="rounded-circle">
-                                        </div>
-                                        <div class="ms-3">
-                                            <h5 class="mb-1">Career Coach</h5>
-                                            <p class="text-muted mb-0">Remote • Senior Level</p>
-                                            <p class="text-muted mb-0">Woman Required</p>
-                                        </div>
-                                    </div>
-                                    <p class="job-description">Career coach specializing in women's professional development to provide mentoring and guidance for career transitions and growth.</p>
-                                </div>
+                                <a href="{{ route('jobs.show', $job->id) }}" class="apply-btn">
+                                    View Job
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                <button class="btn btn-light slider-control prev-btn position-absolute top-50 start-0 translate-middle-y" style="z-index: 10; opacity: 0.6;">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="btn btn-light slider-control next-btn position-absolute top-50 end-0 translate-middle-y" style="z-index: 10; opacity: 0.6;">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+                @empty
+                <div class="col-12">
+                    <div class="alert alert-info">
+                        No job opportunities available at the moment.
+                    </div>
+                </div>
+                @endforelse
             </div>
         </section>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Featured Courses Slider
-            const courseSlider = document.querySelector('.course-slider');
-            const coursePrevBtn = document.querySelector('.course-slider').parentElement.querySelector('.prev-btn');
-            const courseNextBtn = document.querySelector('.course-slider').parentElement.querySelector('.next-btn');
-            
-            courseNextBtn.addEventListener('click', function() {
-                courseSlider.scrollBy({
-                    left: 300,
-                    behavior: 'smooth'
-                });
-            });
-            
-            coursePrevBtn.addEventListener('click', function() {
-                courseSlider.scrollBy({
-                    left: -300,
-                    behavior: 'smooth'
-                });
-            });
-            
-            // Job Newest Slider
-            const jobSlider = document.querySelector('.job-slider');
-            const jobPrevBtn = document.querySelector('.job-slider').parentElement.querySelector('.prev-btn');
-            const jobNextBtn = document.querySelector('.job-slider').parentElement.querySelector('.next-btn');
-            
-            jobNextBtn.addEventListener('click', function() {
-                jobSlider.scrollBy({
-                    left: jobSlider.offsetWidth,
-                    behavior: 'smooth'
-                });
-            });
-            
-            jobPrevBtn.addEventListener('click', function() {
-                jobSlider.scrollBy({
-                    left: -jobSlider.offsetWidth,
-                    behavior: 'smooth'
-                });
-            });
-            
-            // Add hover effect to slider controls
-            const sliderControls = document.querySelectorAll('.slider-control');
-            sliderControls.forEach(control => {
-                control.addEventListener('mouseenter', function() {
-                    this.style.opacity = '0.9';
-                });
-                control.addEventListener('mouseleave', function() {
-                    this.style.opacity = '0.6';
-                });
-            });
-        });
-    </script>
 </body>
 </html>

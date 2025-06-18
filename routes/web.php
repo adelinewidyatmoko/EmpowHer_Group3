@@ -18,10 +18,14 @@ Route::get('/', function () {
 });
 
 
-Route::get('/course', function () {
-    return view('initialcourse');
-});
+Route::get('/course', [\App\Http\Controllers\CourseController::class, 'featuredCourses']);
 
 Route::get('/faq', function () {
     return view('faqfeature');
 });
+
+Route::get('/courses/{id}', [\App\Http\Controllers\CourseController::class, 'show'])->name('courses.show');
+Route::post('/courses/{id}/enroll', [\App\Http\Controllers\CourseController::class, 'enroll'])->name('courses.enroll');
+
+// Adding job routes
+Route::get('/jobs/{id}', [\App\Http\Controllers\JobController::class, 'show'])->name('jobs.show');
