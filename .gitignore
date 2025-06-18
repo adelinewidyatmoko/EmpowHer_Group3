@@ -17,6 +17,9 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+copilot-reference/
+.DS_Store
+.gitignore
 =======
 /vendor/
 node_modules/
@@ -49,3 +52,4 @@ Homestead.json
 .phpactor.json
 auth.json
 >>>>>>> eddd7e88c5aa31c6979973e694244150d8a03759
+.gitignore
