@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\JobController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,17 @@ use App\Http\Controllers\CourseController;
 // Set courses index as the homepage
 Route::get('/', [CourseController::class, 'index']);
 
-// Course routes
+// Course routes (resource style)
 Route::resource('courses', CourseController::class);
 Route::post('courses/{course}/enroll', [CourseController::class, 'enroll'])->name('courses.enroll');
+
+// Additional course routes
+Route::get('/course', [CourseController::class, 'featuredCourses']);
+
+// FAQ route
+Route::get('/faq', function () {
+    return view('faqfeature');
+});
+
+// Job routes
+Route::get('/jobs/{id}', [JobController::class, 'show'])->name('jobs.show');

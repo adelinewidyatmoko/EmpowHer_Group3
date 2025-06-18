@@ -14,6 +14,24 @@ class CourseController extends Controller
     }
     
     /**
+     * Display featured courses on the initial course page.
+     */
+    public function featuredCourses()
+    {
+        $courses = DB::table('course')
+            ->orderBy('courseid', 'desc')
+            ->limit(3)
+            ->get();
+        
+        $jobs = DB::table('jobopportunity')
+            ->orderBy('idjobopportunity', 'desc')
+            ->limit(6)
+            ->get();
+            
+        return view('initialcourse', compact('courses', 'jobs'));
+    }
+    
+    /**
      * Display a listing of the courses.
      */
     public function index()
