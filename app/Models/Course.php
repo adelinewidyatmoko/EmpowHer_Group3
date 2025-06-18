@@ -9,17 +9,13 @@ class Course extends Model
 {
     use HasFactory;
 
+    protected $table = 'course';
+    protected $primaryKey = 'courseid';
+
     protected $fillable = [
         'title',
-        'subtitle',
-        'description',
-        'duration',
-        'enrolled_count',
-        'rating',
-        'provider',
-        'type',
-        'image',
-        'video_url'
+        'descirption',
+        'videourl'
     ];
 
     /**

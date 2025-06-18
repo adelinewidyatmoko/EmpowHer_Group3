@@ -33,8 +33,8 @@ Route::get('/login', [AuthController::class, 'display'])->name('login');
 Route::post('/login', [AuthController::class, 'formValidate']);
 Route::get('/forgot-password', [AuthController::class, 'displayForgotPassword'])->name('password.request');
 
-// Home routes - set courses as homepage
-Route::get('/', [CourseController::class, 'index']);
+// Home routes - set featured courses/dashboard as homepage
+Route::get('/', [CourseController::class, 'featuredCourses']);
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // Account management
@@ -47,6 +47,7 @@ Route::post('courses/{course}/enroll', [CourseController::class, 'enroll'])->nam
 
 // Additional course routes
 Route::get('/course', [CourseController::class, 'featuredCourses']);
+Route::get('/courses-list', [CourseController::class, 'index'])->name('courses.list');
 
 // FAQ route
 Route::get('/faq', function () {

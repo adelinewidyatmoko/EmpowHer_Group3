@@ -406,12 +406,12 @@
                         </div>
                         
                         <div class="course-content">
-                            <div class="fw-bold mb-3">{{ $course->subtitle }}</div>
-                            <div class="course-description mb-3">{{ Str::limit($course->description, 120) }}</div>
+                            <div class="fw-bold mb-3">{{ $course->title }}</div>
+                            <div class="course-description mb-3">{{ Str::limit($course->descirption, 120) }}</div>
                             
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="text-muted small">
-                                    <i class="fas fa-clock me-1"></i>{{ $course->duration }}
+                                    <i class="fas fa-clock me-1"></i>8 weeks
                                 </div>
                                 <a href="{{ route('courses.show', $course->courseid) }}" class="apply-btn">
                                     View Course
@@ -461,7 +461,7 @@
                                 <div class="text-muted small">
                                     <i class="fas fa-map-marker-alt me-1"></i>{{ $job->placement }}
                                 </div>
-                                <a href="{{ route('jobs.show', $job->id) }}" class="apply-btn">
+                                <a href="{{ route('jobs.show', $job->idjobopportunity) }}" class="apply-btn">
                                     View Job
                                 </a>
                             </div>

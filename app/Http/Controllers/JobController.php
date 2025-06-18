@@ -12,7 +12,7 @@ class JobController extends Controller
      */
     public function show($id)
     {
-        $job = DB::table('jobopportunity')->where('id', $id)->first();
+        $job = DB::table('jobopportunity')->where('idjobopportunity', $id)->first();
         
         if (!$job) {
             abort(404);
@@ -27,7 +27,7 @@ class JobController extends Controller
     public function index()
     {
         $jobs = DB::table('jobopportunity')
-            ->orderBy('created_at', 'desc')
+            ->orderBy('idjobopportunity', 'desc')
             ->get();
             
         return view('jobs.index', compact('jobs'));
