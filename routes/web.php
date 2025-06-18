@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +17,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Auth::routes();
+
+Route::get('/login', [AuthController::class, 'display'])->name('login');
+Route::post('/login', [AuthController::class, 'formValidate']);
+Route::get('/forgot-password', [AuthController::class, 'displayForgotPassword'])->name('password.request');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/account', [App\Http\Controllers\AccountController::class, 'account'])->name('account');
+Route::delete('/deleteAccount', [App\Http\Controllers\AccountController::class, 'deleteAccount'])->name('deleteAccount');
+
+
+Route::get('/course', function () {
+    return view('initialcourse');
 });
+
+Route::get('/faq', function () {
+    return view('faqfeature');
+});
+
+Route::get('/course', function () {
+    return view('initialcourse');
+});
+// Set courses index as the homepage
+Route::get('/course', [CourseController::class, 'index']);
+
+// Course routes
+Route::resource('courses', CourseController::class);
+Route::post('courses/{course}/enroll', [CourseController::class, 'enroll'])->name('courses.enroll');
