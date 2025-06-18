@@ -27,11 +27,11 @@
         <div class="col-lg-10">
             <div class="course-detail-card">
                 <div class="course-video-section">
-                    @if($course->video_url)
+                    @if($course->videourl)
                         @php
                             // Convert regular YouTube URL to embed URL
-                            $embedUrl = $course->video_url;
-                            if (preg_match('/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/', $course->video_url, $matches)) {
+                            $embedUrl = $course->videourl;
+                            if (preg_match('/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/', $course->videourl, $matches)) {
                                 $embedUrl = 'https://www.youtube.com/embed/' . $matches[1];
                             }
                         @endphp
@@ -54,11 +54,27 @@
 
                 <div class="course-info-section">
                     <h1 class="course-main-title">{{ $course->title }}</h1>
+                    <p class="course-subtitle">{{ $course->descirption }}</p>
 
                     <div class="text-center">
-                        <button class="apply-btn btn-lg px-5">
-                            <i class="fas fa-play-circle me-2"></i>Start Learning
-                        </button>
+                        @auth
+                            @if($isEnrolled)
+                                <button class="apply-btn btn-lg px-5">
+                                    <i class="fas fa-check-circle me-2"></i>Already Enrolled
+                                </button>
+                            @else
+                                <form method="POST" action="{{ route('courses.enroll', $course->courseid) }}" style="display: inline;">
+                                    @csrf
+                                    <button type="submit" class="apply-btn btn-lg px-5">
+                                        <i class="fas fa-play-circle me-2"></i>Enroll Now
+                                    </button>
+                                </form>
+                            @endif
+                        @else
+                            <a href="#" class="apply-btn btn-lg px-5">
+                                <i class="fas fa-play-circle me-2"></i>Start Learning
+                            </a>
+                        @endauth
                     </div>
                 </div>
             </div>

@@ -18,7 +18,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = DB::table('courses')->get();
+        $courses = DB::table('course')->get();
         return view('courses.index', compact('courses'));
     }
 
@@ -27,7 +27,7 @@ class CourseController extends Controller
      */
     public function show($id)
     {
-        $course = DB::table('courses')->where('id', $id)->first();
+        $course = DB::table('course')->where('courseid', $id)->first();
         
         if (!$course) {
             abort(404);
@@ -50,7 +50,7 @@ class CourseController extends Controller
      */
     public function enroll($id)
     {
-        $course = DB::table('courses')->where('id', $id)->first();
+        $course = DB::table('course')->where('courseid', $id)->first();
         
         if (!$course) {
             abort(404);
@@ -71,11 +71,6 @@ class CourseController extends Controller
                 'created_at' => now(),
                 'updated_at' => now()
             ]);
-
-            // Increment enrolled count
-            DB::table('courses')
-                ->where('id', $id)
-                ->increment('enrolled_count');
             
             return back()->with('success', 'Successfully enrolled in the course!');
         }
