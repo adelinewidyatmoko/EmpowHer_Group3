@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
     <br>
+
     <h2 class="text-center mb-4">Available Courses</h2>
     <div class="row g-4">
         @foreach($courses as $course)

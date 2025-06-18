@@ -232,19 +232,27 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-custom">
+   <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">Educational Courses</a>
-            <div class="ms-auto">
+            <a class="navbar-brand fw-bold" href="{{ url('/') }}">EmpowHer</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/courses') }}">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/categories') }}">Categories</a>
+                    </li>
+                </ul>
                 <div class="profile-section">
-                    @auth
                     <div class="profile-avatar">
                         <i class="fas fa-user"></i>
                     </div>
-                    <span class="text-white">{{ Auth::user()->name }}</span>
-                    @else
-                    <a href="" class="text-white text-decoration-none">Login</a>
-                    @endauth
+                    <span class="text-white d-none d-md-inline">{{ Auth::user()->name ?? 'Guest' }}</span>
                 </div>
             </div>
         </div>
