@@ -47,6 +47,138 @@
         }
 
 
+/* initial-course.blade */
+        .course-card {
+            border-radius: 15px;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-image {
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .category-card {
+            background-color: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            color: #8B4E52;
+            margin-bottom: 1rem;
+        }
+
+        .badge-custom {
+            background-color: #fff;
+            color: #8B4E52;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .rating {
+            color: #ffc107;
+        }
+
+        .platform-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            position: relative;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .platform-icon {
+            max-width: 60px;
+            height: auto;
+        }
+
+        .platform-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #28a745;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .platform-badge.red {
+            background-color: #dc3545;
+        }
+
+        .platform-badge.green {
+            background-color: #28a745;
+        }
+
+        .job-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .job-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .job-icon {
+            width: 60px;
+            height: 60px;
+            overflow: hidden;
+        }
+
+        .job-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .job-tags .badge {
+            margin-right: 8px;
+            padding: 8px 16px;
+        }
+
+        .job-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+
+
         @media (max-width: 768px) {
             .navbar-custom .nav-link {
                 margin: 0.2rem;

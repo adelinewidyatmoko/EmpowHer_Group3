@@ -36,3 +36,7 @@ Route::get('/course', function () {
 Route::get('/faq', function () {
     return view('faqfeature');
 });
+
+Route::get('/course', function () {
+    return view('initialcourse');
+});

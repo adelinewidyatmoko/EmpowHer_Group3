@@ -26,7 +26,7 @@ class AuthController extends Controller
         // Attempt login
         if (Auth::attempt(dataValidate($request))) {
             $request->session()->regenerate();
-            return redirect()->intended('dashboard');
+            return redirect('home');
         }
 
         // If login fails
