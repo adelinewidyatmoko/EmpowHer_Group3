@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\FAQController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AccountController;
@@ -51,9 +52,7 @@ Route::get('/course', [CourseController::class, 'featuredCourses']);
 Route::get('/courses-list', [CourseController::class, 'index'])->name('courses.list');
 
 // FAQ route
-Route::get('/faq', function () {
-    return view('faqfeature');
-});
+Route::get('/faq', [FAQController::class, 'index'])->name('faq.index');
 
 // Job routes - both approaches
 Route::get('/jobs/{id}', [JobController::class, 'show'])->name('jobs.show');

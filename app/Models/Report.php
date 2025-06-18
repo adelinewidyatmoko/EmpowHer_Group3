@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Report extends Model
 {
-    use HasFactory;    protected $table = 'report';
+    use HasFactory;
+    
+    protected $table = 'report';
     protected $primaryKey = 'reportid';
     public $timestamps = false;  // Since the table doesn't have created_at and updated_at
     public $incrementing = true;

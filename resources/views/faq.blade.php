@@ -8,7 +8,7 @@
                     <h2 class="mb-0">Frequently Asked Questions</h2>
                     <p class="text-muted mb-0">Common questions and issues from our community</p>
                 </div>
-                <a href="{{ route('trouble') }}" class="btn btn-primary">Ask a Question</a>
+                <a href="{{ route('trouble.index') }}" class="btn btn-primary">Ask a Question</a>
             </div>
 
             <div class="faq-container">
