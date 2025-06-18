@@ -351,8 +351,8 @@
             }
             
             .job-card-wrapper {
-                min-width: 300px !important;
-                max-width: 300px !important;
+                min-width: 350px !important;
+                max-width: 350px !important;
             }
             
             section {
@@ -367,8 +367,8 @@
             }
             
             .job-card-wrapper {
-                min-width: 340px !important;
-                max-width: 340px !important;
+                min-width: 400px !important;
+                max-width: 400px !important;
             }
             
             .job-card {
@@ -379,6 +379,11 @@
         @media (min-width: 992px) {
             .job-card {
                 min-height: 320px;
+            }
+            
+            .job-card-wrapper {
+                min-width: 450px !important;
+                max-width: 450px !important;
             }
         }
         
@@ -539,7 +544,7 @@
             
             <div class="job-slider d-flex overflow-auto" id="jobSlider" style="scroll-behavior: smooth; gap: 25px; padding: 10px 0;">
                 @forelse($jobs as $job)
-                <div class="job-card-wrapper" style="min-width: 380px; max-width: 380px; flex-shrink: 0;">
+                <div class="job-card-wrapper" style="min-width: 450px; max-width: 450px; flex-shrink: 0;">
                     <div class="job-card h-100" style="min-height: 280px;">
                         <div class="job-header r-programming">
                             <div class="course-logo">EmpowHer</div>
@@ -556,7 +561,7 @@
                             <div class="job-requirements mb-3 flex-grow-1" style="font-size: 14px; line-height: 1.5;">
                                 <i class="fas fa-list-ul me-1"></i>
                                 @if(isset($job->requirements))
-                                    {{ Str::limit($job->requirements, 100) }}
+                                    {{ Str::limit($job->requirements, 120) }}
                                 @else
                                     Experience and relevant skills required.
                                 @endif
