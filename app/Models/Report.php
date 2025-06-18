@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Report extends Model
+{
+    use HasFactory;    protected $table = 'report';
+    protected $primaryKey = 'reportid';
+    public $timestamps = false;  // Since the table doesn't have created_at and updated_at
+    public $incrementing = true;
+
+    protected $fillable = [
+        'type',
+        'reason',
+        'proof'
+    ];
+}
