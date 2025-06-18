@@ -1,8 +1,11 @@
 <?php
 
-use App\Http\Controllers\jobcontroll;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AccountController;
+use App\Http\Controllers\jobcontroll;
 use App\Http\Controllers\Marketingcontroll;
 use App\Http\Controllers\Salescontroll;
 use App\Http\Controllers\Tutorcontroll;
@@ -22,8 +25,21 @@ use Illuminate\Http\Request;
 |
 */
 
-// Set courses index as the homepage
+// Authentication routes
+Auth::routes();
+
+// Login routes
+Route::get('/login', [AuthController::class, 'display'])->name('login');
+Route::post('/login', [AuthController::class, 'formValidate']);
+Route::get('/forgot-password', [AuthController::class, 'displayForgotPassword'])->name('password.request');
+
+// Home routes - set courses as homepage
 Route::get('/', [CourseController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+// Account management
+Route::get('/account', [AccountController::class, 'account'])->name('account');
+Route::delete('/deleteAccount', [AccountController::class, 'deleteAccount'])->name('deleteAccount');
 
 // Course routes (resource style)
 Route::resource('courses', CourseController::class);
