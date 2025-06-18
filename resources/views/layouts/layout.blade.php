@@ -215,6 +215,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/categories') }}">Categories</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/jobopportunity') }}">Jobs</a>
+                    </li>
                 </ul>
                 <div class="profile-section">
                     <div class="profile-avatar">

@@ -7,6 +7,8 @@ use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\TroubleController;
 use App\Http\Controllers\FAQController;
+use App\Http\Controllers\Jobcontroll;
+use App\Http\Controllers\applyjob;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +60,16 @@ Route::get('/faq', [FAQController::class, 'index'])->name('faq');
 Route::get('/jobopportunity', function () {
     return view('jobopportunity');
 });
+
+// controllerjobopportunity
+Route::get('/jobopportunity', jobcontroll::class . '@jobIndex')->name('jobs.tech');
+Route::get('/jobopportunity/tutor', Jobcontroll::class . '@tutorIndex')->name('jobs.tutoring');
+Route::get('/jobopportunity/sales', Jobcontroll::class . '@salesIndex')->name('jobs.sales');
+Route::get('/jobopportunity/marketing', Jobcontroll::class . '@marketingIndex')->name('jobs.marketing');
+Route::get('/jobopportunity/freelance', Jobcontroll::class . '@freelanceIndex')->name('jobs.freelance');
+Route::get('/jobopportunity/tech/details', function(){
+    return view('details.tech.swe');
+});
+Route::get('/jobopportunity/details/tech/{id}', Jobcontroll::class . "@getJobDetails")->name('jobs.tech.details');
+Route::get('/apply', [applyjobs::class, 'applyIndex']);
+Route::post('/apply/submit', [applyjobs::class, 'insertApply'])->name('apply.submit');
