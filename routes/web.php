@@ -55,3 +55,6 @@ Route::post('/trouble', [TroubleController::class, 'submit'])->name('trouble.sub
 Route::get('/forum', [FAQController::class, 'index'])->name('forum');
 Route::get('/faq', [FAQController::class, 'index'])->name('faq');
 
+Route::get('/jobopportunity', function () {
+    return view('jobopportunity');
+});
