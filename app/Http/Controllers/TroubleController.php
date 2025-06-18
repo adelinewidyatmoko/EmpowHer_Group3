@@ -38,8 +38,6 @@ class TroubleController extends Controller
 
         $report->save();
 
-        return back()->with('success', 'Laporan anda telah berhasil dikirim!');
+        return back()->with('success', 'Your report has been submitted successfully!');
     }
-
-
 }

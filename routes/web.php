@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\TroubleController;
+use App\Http\Controllers\FAQController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,7 @@ Route::get('/course', function () {
 });
 
 Route::get('/faq', function () {
-    return view('faqfeature');
+    return view('faq');
 });
 
 Route::get('/course', function () {
@@ -49,5 +50,8 @@ Route::get('/course', [CourseController::class, 'index']);
 Route::resource('courses', CourseController::class);
 Route::post('courses/{course}/enroll', [CourseController::class, 'enroll'])->name('courses.enroll');
 
-Route::get('/trouble', [TroubleController::class, 'index']);
+Route::get('/trouble', [TroubleController::class, 'index'])->name('trouble');
 Route::post('/trouble', [TroubleController::class, 'submit'])->name('trouble.submit');
+Route::get('/forum', [FAQController::class, 'index'])->name('forum');
+Route::get('/faq', [FAQController::class, 'index'])->name('faq');
+
