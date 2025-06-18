@@ -231,7 +231,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
    <!-- Navigation -->
       <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
@@ -257,7 +256,7 @@
             </div>
         </div>
     </nav>
-
+</br>
     @yield('content')
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
