@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Set courses index as the homepage
+Route::get('/', [CourseController::class, 'index']);
+
+// Course routes
+Route::resource('courses', CourseController::class);
+Route::post('courses/{course}/enroll', [CourseController::class, 'enroll'])->name('courses.enroll');
