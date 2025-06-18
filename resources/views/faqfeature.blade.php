@@ -17,13 +17,6 @@
             font-family: 'Arial', sans-serif;
         }
 
-        .support-header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 20px;
-            margin-bottom: 30px;
-        }
-
         .faq-container {
             max-width: 800px;
             margin: 0 auto;
@@ -68,14 +61,57 @@
             align-items: center;
             margin-bottom: 30px;
         }
+        /* Navbar Styles */
+        .navbar {
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: #fff !important;
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-size: 1rem;
+            margin: 0 10px;
+        }
+
+        .nav-link:hover {
+            color: #fff !important;
+        }
     </style>
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <header class="support-header">
-        <h1>Support Menu</h1>
-    </header>
+    <nav class="navbar navbar-expand-lg" style="background-color: #8B4E52; color: white;">
+        <div class="container">
+            <a class="navbar-brand text-white fw-bold" href="#">EmpowHer</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Categories</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <div class="bg-light rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <span class="text-white ms-2">Guest</span>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    <div class="container faq-container">
+    <div class="container faq-container mt-5">
         <div class="faq-header">
             <h2>Frequently Asked Questions (FAQ)</h2>
             <a href="#" class="report-btn">Report Troubles</a>
