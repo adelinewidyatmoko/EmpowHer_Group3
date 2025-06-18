@@ -16,9 +16,6 @@ use App\Http\Controllers\AccountController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Auth::routes();
 
@@ -30,3 +27,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/account', [App\Http\Controllers\AccountController::class, 'account'])->name('account');
 Route::delete('/deleteAccount', [App\Http\Controllers\AccountController::class, 'deleteAccount'])->name('deleteAccount');
+
+
+Route::get('/course', function () {
+    return view('initialcourse');
+});
+
+Route::get('/faq', function () {
+    return view('faqfeature');
+});
