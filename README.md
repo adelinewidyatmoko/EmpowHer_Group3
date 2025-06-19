@@ -1,4 +1,5 @@
 📌[**See Finished App with All Branches Merged in allan/integration Branch**]📌
+
 📌[**empowher/consolidated is for backup purposes**]📌
 
 EmpowHer application aims to empower women by providing a platform for connection, professional development, and even self-improvement from various ages. Here's a breakdown of the product scope:
