@@ -435,9 +435,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/courses') }}">Courses</a>
                     </li>
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="{{ url('/categories') }}">Categories</a>
-                    </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/jobopportunity') }}">Jobs</a>
                     </li>
