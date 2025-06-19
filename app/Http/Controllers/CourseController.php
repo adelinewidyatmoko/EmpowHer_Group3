@@ -65,33 +65,33 @@ class CourseController extends Controller
     /**
      * Enroll the authenticated user in the specified course.
      */
-    public function enroll($id)
-    {
-        $course = Course::find($id);
+    // public function enroll($id)
+    // {
+    //     $course = Course::find($id);
 
-        if (!$course) {
-            abort(404);
-        }
+    //     if (!$course) {
+    //         abort(404);
+    //     }
 
-        // Check if the user is already enrolled
-        $enrollment = DB::table('enrollments')
-            ->where('user_id', Auth::id())
-            ->where('course_id', $id)
-            ->first();
+    //     // Check if the user is already enrolled
+    //     $enrollment = DB::table('enrollments')
+    //         ->where('user_id', Auth::id())
+    //         ->where('course_id', $id)
+    //         ->first();
 
-        if (!$enrollment) {
-            DB::table('enrollments')->insert([
-                'user_id' => Auth::id(),
-                'course_id' => $id,
-                'enrolled_at' => now(),
-                'progress' => 0,
-                'created_at' => now(),
-                'updated_at' => now()
-            ]);
+    //     if (!$enrollment) {
+    //         DB::table('enrollments')->insert([
+    //             'user_id' => Auth::id(),
+    //             'course_id' => $id,
+    //             'enrolled_at' => now(),
+    //             'progress' => 0,
+    //             'created_at' => now(),
+    //             'updated_at' => now()
+    //         ]);
 
-            return back()->with('success', 'Successfully enrolled in the course!');
-        }
+    //         return back()->with('success', 'Successfully enrolled in the course!');
+    //     }
 
-        return back()->with('info', 'You are already enrolled in this course.');
-    }
+    //     return back()->with('info', 'You are already enrolled in this course.');
+    // }
 }

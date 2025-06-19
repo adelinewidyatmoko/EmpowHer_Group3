@@ -55,29 +55,7 @@
                 <div class="course-info-section">
                     <h1 class="course-main-title">{{ $course->title }}</h1>
                     <p class="course-subtitle">{{ $course->descirption }}</p>
-
-                    <div class="text-center">
-                        @auth
-                            @if($isEnrolled)
-                                <button class="apply-btn btn-lg px-5">
-                                    <i class="fas fa-check-circle me-2"></i>Already Enrolled
-                                </button>
-                            @else
-                                <form method="POST" action="{{ route('courses.enroll', $course->courseid) }}" style="display: inline;">
-                                    @csrf
-                                    <button type="submit" class="apply-btn btn-lg px-5">
-                                        <i class="fas fa-play-circle me-2"></i>Enroll Now
-                                    </button>
-                                </form>
-                            @endif
-                        @else
-                            <a href="#" class="apply-btn btn-lg px-5">
-                                <i class="fas fa-play-circle me-2"></i>Start Learning
-                            </a>
-                        @endauth
-                    </div>
                 </div>
-            </div>
         </div>
     </div>
 </div>
