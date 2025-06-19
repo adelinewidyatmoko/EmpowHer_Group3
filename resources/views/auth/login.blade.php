@@ -4,6 +4,15 @@
 <link rel="stylesheet" href="{{ asset('loginstyle.css') }}">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 
+<style>
+.subtitle {
+    font-size: 0.9em;   
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+</style>
+
 
 <div class="login-wrapper">
     <div class="login-container">
