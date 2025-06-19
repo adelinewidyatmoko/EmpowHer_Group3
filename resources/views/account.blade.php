@@ -69,7 +69,7 @@
                         <div class="d-flex align-items-center mb-2">
                             <h4 class="mb-0">{{ Auth::user()->name ?? 'Guest' }}</h4>
                             <span class="badge-role ms-2">Digital Marketing</span>
-                            <a href="#" class="change-link ms-3">Change</a>
+                            <a href="{{ route('change') }}" class="change-link ms-3">Change</a>
                         </div>
                         <p class="text-muted mb-1">{{ Auth::user()->email ?? 'Guest' }}</p>
                         <p class="text-secondary mb-3" style="text-align: left;">

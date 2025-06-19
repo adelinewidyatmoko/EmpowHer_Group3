@@ -27,11 +27,62 @@
             color: white !important;
         }
 
-        .profile-section {
+        .profile-section .btn:hover,
+        .profile-section .btn:focus {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .dropdown-menu {
+            min-width: 200px;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+        }
+
+        .dropdown-item {
+            padding: 0.5rem 1rem;
+        }
+
+        .dropdown-item form button {
+            width: 100%;
+            text-align: left;
+            text-decoration: none;
+            color: #212529;
+        }
+
+        .dropdown-item form button:hover {
+            color: #16181b;
+            text-decoration: none;
+            background-color: #f8f9fa;
+        }
+
+        .profile-dropdown {
+            background-color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 4px;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 8px;
+            cursor: pointer;
         }
+
+        .profile-initial {
+            color: var(--primary-color);
+            background: var(--text-light);
+            width: 50px !important;
+            height: 50px !important;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .profile-name {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
 
         .profile-avatar {
             width: 40px;
@@ -246,13 +297,40 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/categories') }}">Categories</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/jobopportunity') }}">Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('/faq') }}">FaQ</a>
+                    </li>
                 </ul>
+
                 <div class="profile-section">
-                    <div class="profile-avatar">
-                        <i class="fas fa-user"></i>
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="profile-circle me-2">
+                                <span class="profile-initial"></span>
+                            </div>
+                            <span class="profile-name">{{ Auth::user() ? Auth::user()->name : 'Guest' }}</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            @auth
+                                <li><a class="dropdown-item" href="{{ route('account') }}">Profile</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <button type="submit" class="dropdown-item">Logout</button>
+                                    </form>
+                                </li>
+                            @else
+                                <li><a class="dropdown-item" href="{{ route('login') }}">Login</a></li>
+                                <li><a class="dropdown-item" href="{{ route('register') }}">Register</a></li>
+                            @endauth
+                        </ul>
                     </div>
-                    <span class="text-white d-none d-md-inline">{{ Auth::user()->name ?? 'Guest' }}</span>
                 </div>
+
             </div>
         </div>
     </nav>

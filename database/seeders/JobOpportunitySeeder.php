@@ -55,6 +55,7 @@ class JobOpportunitySeeder extends Seeder
                 'description' => 'We are looking for a Sales Coordinator to support our sales team with administrative tasks and client communication.',
                 'videourl' => 'https://example.com/sales-coordinator-video',
             ],
+
             // TUTORING CATEGORY - 5 entries
             [
                 'title' => 'Mathematics Tutor',
@@ -96,6 +97,7 @@ class JobOpportunitySeeder extends Seeder
                 'description' => 'We are seeking a Test Prep Tutor to help students prepare for standardized tests and entrance exams.',
                 'videourl' => 'https://example.com/test-prep-video',
             ],
+
             // FREELANCE CATEGORY - 5 entries
             [
                 'title' => 'Freelance Graphic Designer',
@@ -138,5 +140,5 @@ class JobOpportunitySeeder extends Seeder
                 'videourl' => 'https://example.com/virtual-assistant-video',
             ],
         ]);
-}
+    }
 }

@@ -1,3 +1,6 @@
+@extends('layouts.layout')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,6 +59,9 @@
             margin-bottom: 20px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .course-card:hover {
@@ -70,6 +76,7 @@
             position: relative;
             display: flex;
             align-items: center;
+            flex-shrink: 0;
         }
 
         .course-header.r-programming {
@@ -90,6 +97,9 @@
 
         .course-content {
             padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .course-description {
@@ -139,7 +149,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    height: 120px;
+    min-height: 120px;
 }
 
 .platform-card:hover {
@@ -185,9 +196,10 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+    min-height: 280px;
 }
 
-.job-card:hover {
+.   -card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
 }
@@ -238,7 +250,6 @@
 .job-slider::-webkit-scrollbar {
     display: none;
 }
-
 .job-icon {
     width: 60px;
     height: 60px;
@@ -262,28 +273,28 @@
     margin-bottom: 0;
 }
 
-    /* Slider Styles */
-    .course-slider, .job-slider {
-        scroll-behavior: smooth;
-        -ms-overflow-style: none;  /* Hide scrollbar IE and Edge */
-        scrollbar-width: none;  /* Hide scrollbar Firefox */
-        padding: 10px 40px;
-    }
+/* Slider Styles */
+.course-slider, .job-slider {
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* Hide scrollbar IE and Edge */
+    scrollbar-width: none;  /* Hide scrollbar Firefox */
+    padding: 10px 40px;
+}
 
-    .course-slider::-webkit-scrollbar, .job-slider::-webkit-scrollbar {
-        display: none; /* Hide scrollbar Chrome, Safari, Opera */
-    }
+.course-slider::-webkit-scrollbar, .job-slider::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome, Safari, Opera */
+}
 
 
-    .prev-btn {
-        left: 10px;
-    }
+.prev-btn {
+    left: 10px;
+}
 
-    .next-btn {
-        right: 10px;
-    }
+.next-btn {
+    right: 10px;
+}
 
-    .view-course-btn {
+.view-course-btn {
             background-color: #94576E;
             color: white;
             text-decoration: none;
@@ -320,64 +331,133 @@
             color: white;
             transform: translateY(-2px);
         }
+
+        /* Additional responsive improvements */
+        @media (max-width: 768px) {
+            .course-card {
+                margin-bottom: 1.5rem;
+            }
+
+            .job-card {
+                margin-bottom: 1.5rem;
+                min-height: 260px;
+            }
+
+            .platform-card {
+                height: 100px;
+                min-height: 100px;
+            }
+
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            .job-card-wrapper {
+                min-width: 350px !important;
+                max-width: 350px !important;
+            }
+
+            section {
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 991px) {
+            .platform-card {
+                height: 110px;
+                min-height: 110px;
+            }
+
+            .job-card-wrapper {
+                min-width: 400px !important;
+                max-width: 400px !important;
+            }
+
+            .job-card {
+                min-height: 300px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .job-card {
+                min-height: 320px;
+            }
+
+            .job-card-wrapper {
+                min-width: 450px !important;
+                max-width: 450px !important;
+            }
+        }
+
+        /* Ensure equal height cards */
+        .row.g-4 {
+            margin-bottom: 2rem;
+        }
+
+        .course-description {
+            min-height: 60px;
+        }
+
+        .job-requirements {
+            min-height: 80px;
+        }
+
+        /* Section spacing consistency */
+        section {
+            margin-bottom: 3rem;
+        }
+
+        .job-slider {
+            min-height: 300px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        /* Center content in empty states */
+        .alert.text-center {
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        /* Improved button alignment */
+        .apply-btn, .view-course-btn {
+            white-space: nowrap;
+        }
     </style>
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg" style="background-color: #8B4E52; color: white;">
-        <div class="container">
-            <a class="navbar-brand text-white fw-bold" href="#">EmpowHer</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Courses</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Categories</a>
-                    </li>
-                </ul>
-                <div class="d-flex align-items-center">
-                    <div class="bg-light rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <span class="text-white ms-2">Guest</span>
-                </div>
-            </div>
-        </div>
-    </nav>
+
 
     <div class="container mt-4">
-        <h2 class="fw-bold mb-4">Partner</h2>
-            <div class="row mb-5">
-                <div class="col-md-3">
-                    <a href="https://www.coursera.org" target="_blank" class="text-decoration-none">
-                        <div class="platform-card">
+        <h2 class="fw-bold mb-4 text-center">Partner</h2>
+            <div class="row g-4 mb-5 justify-content-center">
+                <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+                    <a href="https://www.coursera.org" target="_blank" class="text-decoration-none w-100">
+                        <div class="platform-card w-100">
                             <img src="https://www.langoly.com/wp-content/uploads/2021/09/coursera-logo.png" class="platform-icon" alt="Coursera">
                             <span class="platform-badge">1</span>
                         </div>
                     </a>
                 </div>
-                <div class="col-md-3">
-                    <a href="https://www.udemy.com" target="_blank" class="text-decoration-none">
-                        <div class="platform-card">
+                <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+                    <a href="https://www.udemy.com" target="_blank" class="text-decoration-none w-100">
+                        <div class="platform-card w-100">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Udemy_logo.svg/2560px-Udemy_logo.svg.png" class="platform-icon" alt="Udemy">
                             <span class="platform-badge red">2</span>
                         </div>
                     </a>
                 </div>
-                <div class="col-md-3">
-                    <a href="https://www.google.com" target="_blank" class="text-decoration-none">
-                        <div class="platform-card">
+                <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+                    <a href="https://www.google.com" target="_blank" class="text-decoration-none w-100">
+                        <div class="platform-card w-100">
                             <img src="https://cdn.iconscout.com/icon/free/png-256/free-google-160-189824.png" class="platform-icon" alt="Google">
                             <span class="platform-badge green">1</span>
                         </div>
                     </a>
                 </div>
-                <div class="col-md-3">
-                    <a href="https://www.linkedin.com" target="_blank" class="text-decoration-none">
-                        <div class="platform-card">
+                <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+                    <a href="https://www.linkedin.com" target="_blank" class="text-decoration-none w-100">
+                        <div class="platform-card w-100">
                             <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" class="platform-icon" alt="LinkedIn">
                             <span class="platform-badge">3</span>
                         </div>
@@ -386,17 +466,16 @@
             </div>
 
 
-
         <section class="mt-5">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2 class="fw-bold">Featured Courses</h2>
-                <a href="#" class="btn btn-outline-primary">View All</a>
+                <a href="/courses" class="btn btn-outline-primary">View All</a>
             </div>
 
-            <div class="row">
+            <div class="row g-4">
                 @forelse($courses as $course)
-                <div class="col-md-6 col-lg-4">
-                    <div class="course-card">
+                <div class="col-lg-4 col-md-6 col-sm-12 d-flex">
+                    <div class="course-card h-100 w-100">
                         <div class="course-header r-programming">
                             <div class="course-logo">EmpowHer</div>
                             <div class="d-flex align-items-center">
@@ -405,15 +484,21 @@
                             </div>
                         </div>
 
-                        <div class="course-content">
-                            <div class="fw-bold mb-3">{{ $course->subtitle }}</div>
-                            <div class="course-description mb-3">{{ Str::limit($course->description, 120) }}</div>
+                        <div class="course-content d-flex flex-column h-100">
+                            <div class="fw-bold mb-3">Learn {{ $course->title }}</div>
+                            <div class="course-description mb-3 flex-grow-1">
+                                @if(isset($course->description))
+                                    {{ Str::limit($course->description, 120) }}
+                                @else
+                                    A comprehensive course to master the fundamentals and advance your skills.
+                                @endif
+                            </div>
 
-                            <div class="d-flex align-items-center justify-content-between">
+                            <div class="d-flex align-items-center justify-content-between mt-auto">
                                 <div class="text-muted small">
-                                    <i class="fas fa-clock me-1"></i>{{ $course->duration }}
+                                    <i class="fas fa-clock me-1"></i>10 weeks
                                 </div>
-                                <a href="{{ route('courses.show', $course->courseid) }}" class="apply-btn">
+                                <a href="{{ $course->videourl }}" target="_blank" class="apply-btn">
                                     View Course
                                 </a>
                             </div>
@@ -422,7 +507,7 @@
                 </div>
                 @empty
                 <div class="col-12">
-                    <div class="alert alert-info">
+                    <div class="alert alert-info text-center">
                         No featured courses available at the moment.
                     </div>
                 </div>
@@ -433,13 +518,13 @@
         <section class="mt-5 mb-5">
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <h2 class="fw-bold">Job Newest</h2>
-                <a href="#" class="btn btn-outline-primary">View All</a>
+                <a href="/jobopportunity" class="btn btn-outline-primary">View All</a>
             </div>
 
-            <div class="job-slider d-flex overflow-auto" id="jobSlider" style="scroll-behavior: smooth; gap: 25px;">
+            <div class="job-slider d-flex overflow-auto" id="jobSlider" style="scroll-behavior: smooth; gap: 25px; padding: 10px 0;">
                 @forelse($jobs as $job)
-                <div class="job-card-wrapper" style="min-width: 420px; max-width: 420px;">
-                    <div class="job-card">
+                <div class="job-card-wrapper" style="min-width: 450px; max-width: 450px; flex-shrink: 0;">
+                    <div class="job-card h-100" style="min-height: 280px;">
                         <div class="job-header r-programming">
                             <div class="course-logo">EmpowHer</div>
                             <div class="d-flex align-items-center">
@@ -448,20 +533,24 @@
                             </div>
                         </div>
 
-                        <div class="job-content">
-                            <div class="fw-bold mb-2">{{ $job->placement }}</div>
-                            <div class="job-salary mb-3">
+                        <div class="job-content d-flex flex-column h-100" style="padding: 25px;">
+                            <div class="job-salary mb-3" style="font-size: 16px; font-weight: 600;">
                                 <i class="fas fa-dollar-sign me-1"></i>{{ $job->salary }}
                             </div>
-                            <div class="job-requirements mb-3">
-                                <i class="fas fa-list-ul me-1"></i>{{ Str::limit($job->requirements, 100) }}
+                            <div class="job-requirements mb-3 flex-grow-1" style="font-size: 14px; line-height: 1.5;">
+                                <i class="fas fa-list-ul me-1"></i>
+                                @if(isset($job->requirements))
+                                    {{ Str::limit($job->requirements, 120) }}
+                                @else
+                                    Experience and relevant skills required.
+                                @endif
                             </div>
 
                             <div class="d-flex align-items-center justify-content-between mt-auto">
                                 <div class="text-muted small">
                                     <i class="fas fa-map-marker-alt me-1"></i>{{ $job->placement }}
                                 </div>
-                                <a href="{{ route('jobs.show', $job->id) }}" class="apply-btn">
+                                <a href="{{ isset($job->videourl) ? $job->videourl : '#' }}" target="_blank" class="apply-btn">
                                     View Job
                                 </a>
                             </div>
@@ -470,7 +559,7 @@
                 </div>
                 @empty
                 <div class="col-12">
-                    <div class="alert alert-info">
+                    <div class="alert alert-info text-center">
                         No job opportunities available at the moment.
                     </div>
                 </div>
@@ -480,6 +569,7 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-</body>
+    </body>
 </html>
+
+@endsection

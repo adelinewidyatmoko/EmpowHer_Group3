@@ -1,4 +1,4 @@
-@extends('layout.layoutapply')
+@extends('layouts.layout')
 @section('content')
 <style>
         :root {

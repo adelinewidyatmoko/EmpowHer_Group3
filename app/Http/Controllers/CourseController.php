@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -19,13 +20,10 @@ class CourseController extends Controller
     public function featuredCourses()
     {
         $courses = DB::table('course')
-            ->where('is_featured', true)
-            ->orderBy('created_at', 'desc')
-            ->limit(3)
+            ->limit(6)
             ->get();
 
         $jobs = DB::table('jobopportunity')
-            ->orderBy('created_at', 'desc')
             ->limit(6)
             ->get();
 
@@ -69,7 +67,7 @@ class CourseController extends Controller
      */
     public function enroll($id)
     {
-        $course = DB::table('course')->where('courseid', $id)->first();
+        $course = Course::find($id);
 
         if (!$course) {
             abort(404);

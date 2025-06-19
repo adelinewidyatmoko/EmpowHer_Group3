@@ -8,7 +8,7 @@
         <h2>Create account</h2>
         <p class="subtitle">Please fill complete below placeholders</p>
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register.create') }}">
             @csrf
 
             <div class="input-group">
