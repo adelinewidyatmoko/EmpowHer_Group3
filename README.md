@@ -1,3 +1,6 @@
+📌[**See Finished App with All Branches Merged in allan/integration Branch**]📌
+📌[**empowher/consolidated is for backup purposes**]📌
+
 EmpowHer application aims to empower women by providing a platform for connection, professional development, and even self-improvement from various ages. Here's a breakdown of the product scope:
 
 1. Job Opportunities
@@ -9,9 +12,6 @@ Integrate with external learning platforms to allow users to directly enroll in 
 
 3. Forum Page:
 Foster a space for users to connect, share experiences, and engage in discussions on posts relevant to women's empowerment.
-
-
-📌[**See Finished App with All Branches Merged in allan/integration Branch**]📌
 
 ==============
 ## 👩‍💻 For Developers – Project Structure & Contribution Guide
