@@ -1,5 +1,6 @@
-**Integration: The finished app, all branches merged and integrated into one branch
-**
+**Integration: The finished app, all branches merged and integrated into one branch**
+
+
 EmpowHer application aims to empower women by providing a platform for connection, professional development, and even self-improvement from various ages. Here's a breakdown of the product scope:
 
 1. Job Opportunities
