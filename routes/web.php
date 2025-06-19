@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\TroubleController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\Jobcontroll;
@@ -32,6 +33,9 @@ Route::get('/register', function(){
     return view('auth.register');
 })->name('register');
 Route::post('/register', [RegisterController::class, 'create'])->name('register.create');
+Route::post('/password', [PasswordController::class, 'update'])->name('password.update');
+
+
 
 //allan
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
