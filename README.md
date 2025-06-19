@@ -9,6 +9,10 @@ Integrate with external learning platforms to allow users to directly enroll in 
 
 3. Forum Page:
 Foster a space for users to connect, share experiences, and engage in discussions on posts relevant to women's empowerment.
+
+
+[**See Finished App with All Branches Merged in allan/integration Branch**]
+
 ==============
 ## 👩‍💻 For Developers – Project Structure & Contribution Guide
 Mohon untuk mengikuti dan membaca seksama strkture folder yang perlu dan tidak perlu di ketik.
