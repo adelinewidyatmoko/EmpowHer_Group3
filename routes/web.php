@@ -22,8 +22,6 @@ use App\Http\Controllers\applyjob;
 */
 
 
-Auth::routes();
-
 Route::get('/login', [AuthController::class, 'display'])->name('login');
 Route::post('/login', [AuthController::class, 'formValidate']);
 Route::get('/forgot-password', [AuthController::class, 'displayForgotPassword'])->name('password.request');
@@ -73,3 +71,13 @@ Route::get('/jobopportunity/tech/details', function(){
 Route::get('/jobopportunity/details/tech/{id}', Jobcontroll::class . "@getJobDetails")->name('jobs.tech.details');
 Route::get('/apply', [applyjobs::class, 'applyIndex']);
 Route::post('/apply/submit', [applyjobs::class, 'insertApply'])->name('apply.submit');
+
+
+
+Route::get('/course', function () {
+    return view('initialcourse');
+});
+
+Route::get('/faq', function () {
+    return view('faqfeature');
+});
